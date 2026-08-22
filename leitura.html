@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revisão Guiada — Revisão Trimestre · Matemática 7º ano</title>
+<style>
+  :root{
+    --bg:#0e1626;--card:#16213b;--card2:#1b2748;--borda:#2c3a63;
+    --texto:#eef3ff;--texto2:#c2cef0;--suave:#8ea0cc;
+    --c5:#2bb6a6;--c6:#3d7dff;--c78:#a06bff;--amarelo:#ffd34d;
+    --verde:#37c98a;--verde-bg:rgba(55,201,138,.12);
+    --vermelho:#ff6b7a;--vermelho-bg:rgba(255,107,122,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    background:radial-gradient(1200px 600px at 50% -10%,#1a2748 0%,var(--bg) 60%);
+    color:var(--texto);line-height:1.65;padding:20px 16px 70px;}
+  .wrap{max-width:840px;margin:0 auto;}
+  .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;font-size:13px;}
+  .top a{color:var(--suave);text-decoration:none;font-weight:700;}
+  .top a:hover{color:var(--amarelo);}
+  h1{font-size:26px;margin-bottom:6px;}
+  .lead{color:var(--texto2);font-size:15px;margin-bottom:18px;}
+
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:5;
+    background:linear-gradient(#0e1626,#0e1626ee);padding:10px 0;margin-bottom:6px;}
+  .tab{flex:1;min-width:150px;cursor:pointer;border:1px solid var(--borda);
+    background:var(--card);color:var(--texto2);border-radius:12px;padding:11px 12px;
+    font-weight:700;font-size:13.5px;text-align:center;transition:.15s;}
+  .tab .n{display:block;font-size:11px;color:var(--suave);font-weight:700;}
+  .tab.on5{border-color:var(--c5);background:rgba(43,182,166,.14);color:#fff;}
+  .tab.on6{border-color:var(--c6);background:rgba(61,125,255,.16);color:#fff;}
+  .tab.on78{border-color:var(--c78);background:rgba(160,107,255,.16);color:#fff;}
+
+  .bloco{display:none;} .bloco.ativo{display:block;animation:fade .25s;}
+  @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;}}
+
+  .barra{height:5px;border-radius:4px;margin:6px 0 20px;}
+  .barra5{background:var(--c5);} .barra6{background:var(--c6);} .barra78{background:var(--c78);}
+
+  h2{font-size:20px;margin:26px 0 6px;display:flex;gap:8px;align-items:center;}
+  h2 .dot{width:12px;height:12px;border-radius:50%;flex:none;}
+  .d5{background:var(--c5);} .d6{background:var(--c6);} .d78{background:var(--c78);}
+  h3{font-size:16px;margin:20px 0 6px;color:var(--texto);}
+  p{color:var(--texto2);margin:8px 0;font-size:14.5px;}
+  b,strong{color:#fff;}
+
+  .box{border:1px solid var(--borda);background:var(--card);border-radius:14px;
+    padding:14px 16px;margin:14px 0;}
+  .def{border-left:4px solid var(--amarelo);}
+  .ex{border-left:4px solid var(--verde);background:var(--verde-bg);}
+  .warn{border-left:4px solid var(--vermelho);background:var(--vermelho-bg);}
+  .box .tit{font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.04em;
+    margin-bottom:6px;color:var(--suave);}
+  .warn .tit{color:var(--vermelho);}
+  .ex .tit{color:var(--verde);}
+
+  .formula{background:#0b1220;border:1px dashed var(--borda);
+    border-radius:10px;padding:10px 14px;font-family:'Courier New',monospace;
+    font-size:15px;color:var(--amarelo);text-align:center;margin:10px 0;}
+
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px;}
+  th,td{border:1px solid var(--borda);padding:8px 10px;text-align:left;color:var(--texto2);}
+  th{background:var(--card2);color:#fff;font-size:12.5px;}
+
+  .trilhobar{display:flex;flex-wrap:wrap;align-items:center;gap:4px;justify-content:center;
+    background:var(--card2);border-radius:12px;padding:12px;margin:12px 0;font-size:13px;}
+  .un{background:#0b1220;border:1px solid var(--borda);border-radius:8px;padding:5px 9px;font-weight:800;color:#fff;}
+  .op{color:var(--amarelo);font-weight:700;font-size:12px;}
+
+  ul{margin:8px 0 8px 20px;} li{color:var(--texto2);margin:4px 0;font-size:14.5px;}
+
+  .navf{display:flex;justify-content:space-between;margin-top:34px;gap:10px;}
+  .navf a{flex:1;text-align:center;text-decoration:none;background:var(--card2);
+    border:1px solid var(--borda);border-radius:12px;padding:13px;color:var(--texto);font-weight:700;font-size:14px;}
+  .navf a:hover{border-color:var(--amarelo);color:var(--amarelo);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a href="index.html">← Início</a>
+    <a href="simulado.html">Ir ao Simulado →</a>
+  </div>
+
+  <h1>📖 Revisão Guiada</h1>
+  <p class="lead">A matéria do trimestre em três blocos. Escolha o capítulo, leia com calma e confira os exemplos resolvidos. Depois vá ao Resumo e ao Simulado.</p>
+
+  <div class="tabs">
+    <div class="tab on5" data-b="5" onclick="mostra(5)"><span class="n">Capítulo 5</span>Unidades de medida</div>
+    <div class="tab" data-b="6" onclick="mostra(6)"><span class="n">Capítulo 6</span>Números racionais</div>
+    <div class="tab" data-b="78" onclick="mostra(78)"><span class="n">Capítulos 7 e 8</span>Raízes e áreas</div>
+  </div>
+
+  <!-- ============ BLOCO CAP 5 ============ -->
+  <div class="bloco ativo" id="b5">
+    <div class="barra barra5"></div>
+    <h2><span class="dot d5"></span>Capítulo 5 — Transformação de unidades</h2>
+    <p>Medimos coisas em unidades diferentes conforme o tamanho. Ninguém mede a distância até a escola em milímetros nem a espessura de um cabelo em quilômetros. Transformar unidades é <b>traduzir</b> a mesma medida de uma unidade para outra.</p>
+
+    <div class="box def">
+      <div class="tit">O Sistema Internacional (SI)</div>
+      <p>É o conjunto de unidades-padrão usado no mundo quase inteiro. Cada tipo de medida tem uma <b>unidade-base</b>: comprimento → <b>metro (m)</b>; área → <b>metro quadrado (m²)</b>; tempo → <b>segundo (s)</b>.</p>
+    </div>
+
+    <h3>Os prefixos (decore estes 6)</h3>
+    <p>O prefixo significa sempre a mesma coisa, não importa a unidade (vale para km, kg, kL...).</p>
+    <table>
+      <tr><th>Prefixo</th><th>Significa</th><th>Exemplo</th></tr>
+      <tr><td>quilo (k)</td><td>× 1.000</td><td>1 km = 1.000 m</td></tr>
+      <tr><td>hecto (h)</td><td>× 100</td><td>1 hm = 100 m</td></tr>
+      <tr><td>deca (da)</td><td>× 10</td><td>1 dam = 10 m</td></tr>
+      <tr><td>deci (d)</td><td>÷ 10</td><td>1 dm = 0,1 m</td></tr>
+      <tr><td>centi (c)</td><td>÷ 100</td><td>1 cm = 0,01 m</td></tr>
+      <tr><td>mili (m)</td><td>÷ 1.000</td><td>1 mm = 0,001 m</td></tr>
+    </table>
+
+    <h3>Comprimento — o trilho do ×10</h3>
+    <div class="trilhobar">
+      <span class="un">km</span><span class="op">×10→</span>
+      <span class="un">hm</span><span class="op">×10→</span>
+      <span class="un">dam</span><span class="op">×10→</span>
+      <span class="un">m</span><span class="op">×10→</span>
+      <span class="un">dm</span><span class="op">×10→</span>
+      <span class="un">cm</span><span class="op">×10→</span>
+      <span class="un">mm</span>
+    </div>
+    <p>Cada casa para a <b>direita</b> = multiplica por 10. Cada casa para a <b>esquerda</b> = divide por 10. Duas casas = ×100 (ou ÷100); três casas = ×1.000.</p>
+    <div class="box"><b>Equivalências para decorar:</b> 1 km = 1.000 m · 1 m = 100 cm · 1 m = 1.000 mm · 1 cm = 10 mm.</div>
+    <div class="box ex">
+      <div class="tit">Exemplos resolvidos</div>
+      <p>• 2,78 km em m → 3 casas à direita → 2,78 × 1.000 = <b>2.780 m</b><br>
+      • 50 cm em m → 2 casas à esquerda → 50 ÷ 100 = <b>0,5 m</b><br>
+      • 4,5 m em cm → 2 casas à direita → <b>450 cm</b></p>
+    </div>
+    <div class="box warn">
+      <div class="tit">⚠️ Armadilha clássica</div>
+      <p>Ir do metro para o km é <b>dividir</b>, não multiplicar. Como o km é uma unidade maior, o número fica menor: 5.000 m = <b>5 km</b> (nunca 5.000.000 km).</p>
+    </div>
+    <p><b>Fora do SI:</b> 1 polegada ≈ 2,54 cm · 1 pé ≈ 30,48 cm · 1 milha terrestre ≈ 1.609 m. Uma TV de 50 polegadas tem diagonal de 50 × 2,54 ≈ 127 cm.</p>
+
+    <h3>Área — o trilho do ×100</h3>
+    <div class="trilhobar">
+      <span class="un">km²</span><span class="op">×100→</span>
+      <span class="un">hm²</span><span class="op">×100→</span>
+      <span class="un">dam²</span><span class="op">×100→</span>
+      <span class="un">m²</span><span class="op">×100→</span>
+      <span class="un">dm²</span><span class="op">×100→</span>
+      <span class="un">cm²</span><span class="op">×100→</span>
+      <span class="un">mm²</span>
+    </div>
+    <div class="box warn">
+      <div class="tit">A diferença que derruba todo mundo</div>
+      <p>Em comprimento cada casa é ×10. Em <b>área cada casa é ×100</b>. Por quê? O m² é um quadrado: se o lado vai ×10, a área vai 10×10 = ×100.</p>
+    </div>
+    <div class="box"><b>Equivalências-chave:</b> 1 km² = 1.000.000 m² · 1 hm² = 10.000 m² · 1 m² = 10.000 cm² · 1 cm² = 100 mm².</div>
+
+    <h3>Hectare e alqueire (terrenos grandes)</h3>
+    <p>Para fazendas e sítios o m² fica pequeno demais. <b>1 hectare (ha) = 10.000 m²</b> (o mesmo que 1 hm², mais ou menos um campo de futebol). O <b>alqueire</b> varia por região:</p>
+    <table>
+      <tr><th>Tipo</th><th>Equivale a</th></tr>
+      <tr><td>Alqueire paulista</td><td>24.200 m² ≈ 2,42 ha</td></tr>
+      <tr><td>Alqueire mineiro</td><td>48.400 m² ≈ 4,84 ha (o dobro do paulista)</td></tr>
+      <tr><td>Alqueire do Norte</td><td>27.225 m² ≈ 2,72 ha</td></tr>
+    </table>
+    <div class="box ex"><div class="tit">Receita para problemas de terreno</div>
+    <p>Converta tudo para <b>m²</b>, faça as contas (preço por m², comparação...) e só no fim volte para a unidade pedida. Nunca misture hectare com alqueire.</p></div>
+
+    <h3>Tempo — base 60 (não é ×10!)</h3>
+    <p>O tempo não segue base 10. Usa base 60, herdada dos babilônios.</p>
+    <table>
+      <tr><th>Unidade</th><th>Equivale a</th></tr>
+      <tr><td>1 minuto</td><td>60 segundos</td></tr>
+      <tr><td>1 hora</td><td>60 min = 3.600 s</td></tr>
+      <tr><td>1 dia</td><td>24 h = 86.400 s</td></tr>
+    </table>
+    <p>De maior para menor: <b>multiplica</b> (h→min ×60, min→s ×60). De menor para maior: <b>divide</b> por 60.</p>
+    <div class="box ex"><div class="tit">Soma com regrupamento</div>
+    <p>4 h 35 min 45 s + 2 h 24 min 15 s = 6 h 59 min 60 s. Como 60 s = 1 min → 6 h 60 min → como 60 min = 1 h → <b>7 h</b>. Nunca deixe 60 s ou 60 min na resposta final.</p></div>
+  </div>
+
+  <!-- ============ BLOCO CAP 6 ============ -->
+  <div class="bloco" id="b6">
+    <div class="barra barra6"></div>
+    <h2><span class="dot d6"></span>Capítulo 6 — Números racionais (ℚ)</h2>
+
+    <div class="box def">
+      <div class="tit">O que é número racional</div>
+      <p>É todo número que pode ser escrito como uma fração <b>a/b</b>, com a e b inteiros e <b>b ≠ 0</b>. Dentro de ℚ cabem: frações, decimais exatos, dízimas periódicas e todos os inteiros (porque 5 = 5/1).</p>
+    </div>
+    <p><b>Encaixe dos conjuntos:</b> ℕ ⊂ ℤ ⊂ ℚ — os naturais cabem nos inteiros, que cabem nos racionais. Símbolos: ∈ (pertence) e ∉ (não pertence). Exemplo: −6 e 0,5 <b>não</b> são naturais, mas <b>são</b> racionais.</p>
+
+    <h3>Transformar fração em decimal</h3>
+    <p>Fração é divisão: a/b = a ÷ b. Faça a conta:</p>
+    <ul>
+      <li><b>Decimal exato:</b> a divisão termina (resto 0). Ex.: 3/4 = 0,75.</li>
+      <li><b>Dízima periódica:</b> a divisão nunca acaba e um grupo se repete. Ex.: 2/7 = 0,285714... As reticências mostram que continua para sempre.</li>
+    </ul>
+
+    <h3>Transformar decimal em fração</h3>
+    <p>Só ler o número: o denominador é uma potência de 10 com tantos zeros quantas forem as <b>casas depois da vírgula</b>. Depois simplifique.</p>
+    <table>
+      <tr><th>Decimal</th><th>Casas</th><th>Fração</th><th>Simplificada</th></tr>
+      <tr><td>0,8</td><td>1 → /10</td><td>8/10</td><td>4/5</td></tr>
+      <tr><td>0,12</td><td>2 → /100</td><td>12/100</td><td>3/25</td></tr>
+      <tr><td>2,25</td><td>2 → /100</td><td>225/100</td><td>9/4</td></tr>
+    </table>
+    <div class="box warn"><div class="tit">Cuidado</div><p>O número de zeros depende das <b>casas</b>, não do valor: 0,7 = 7/10 (1 zero), não 7/100.</p></div>
+
+    <h3>Racionais na reta numérica</h3>
+    <p>O denominador diz em quantas partes dividir o trecho; o numerador diz em qual marca parar. Ex.: 3/4 → divida de 0 a 1 em 4 partes e pare na 3ª. Para saber entre quais inteiros está, <b>vire decimal</b>: 16/5 = 3,2 → entre 3 e 4; −3/5 = −0,6 → entre −1 e 0.</p>
+    <div class="box warn"><div class="tit">Nos negativos</div><p>O maior é quem está mais perto do zero: <b>−0,5 &gt; −2</b> (não é o contrário!).</p></div>
+
+    <h3>Comparar racionais</h3>
+    <ul>
+      <li><b>Mesmo denominador:</b> ganha o numerador maior (3/4 &gt; 1/4).</li>
+      <li><b>Denominadores diferentes:</b> use o mmc para igualar, ou (mais fácil) transforme tudo em decimal e compare.</li>
+    </ul>
+    <div class="box warn"><div class="tit">Pegadinha</div><p>Denominador maior <b>não</b> é fração maior: 1/2 &gt; 1/4, mesmo o 4 sendo maior. Mais partes = pedaços menores.</p></div>
+
+    <h3>Módulo e opostos</h3>
+    <div class="box def">
+      <p><b>Módulo (valor absoluto) |x|:</b> a distância do número até o zero — sempre positivo ou zero. |−6| = 6, |10,3| = 10,3, |0| = 0. <b>Tira</b> o sinal.<br><br>
+      <b>Números opostos (simétricos):</b> mesmo módulo, sinais contrários. O oposto de 2,5 é −2,5; o oposto de −10 é 10. <b>Troca</b> o sinal.</p>
+    </div>
+    <div class="box warn"><div class="tit">Não confunda</div><p>O módulo de −6 é 6 e o oposto de −6 também é 6. Mas o módulo de +6 é +6, enquanto o oposto de +6 é −6.</p></div>
+  </div>
+
+  <!-- ============ BLOCO CAP 7-8 ============ -->
+  <div class="bloco" id="b78">
+    <div class="barra barra78"></div>
+    <h2><span class="dot d78"></span>Capítulos 7 e 8 — Operações, potências, raízes e áreas</h2>
+
+    <h3>Operações com racionais</h3>
+    <ul>
+      <li><b>Somar/subtrair:</b> denominadores iguais → soma só os numeradores; diferentes → iguale pelo mmc. Ex.: −1/3 + 2/5 − 1/2 → mmc 30 → (−10+12−15)/30 = <b>−13/30</b>.</li>
+      <li><b>Decimais na soma:</b> alinhe as vírgulas e complete com zero (1,3 = 1,30).</li>
+      <li><b>Multiplicar:</b> numerador × numerador, denominador × denominador, depois simplifique. Em decimais, o resultado tem tantas casas quanto a soma das casas dos fatores (1,4 × 3,2 = 4,48).</li>
+      <li><b>Dividir:</b> multiplique pelo <b>inverso</b> da segunda fração. Ex.: 1/5 : 3 = 1/5 × 1/3 = 1/15.</li>
+      <li><b>Sinais (× e ÷):</b> iguais → positivo; diferentes → negativo.</li>
+    </ul>
+
+    <h3>Potenciação</h3>
+    <div class="formula">(a/b)ⁿ = aⁿ / bⁿ &nbsp;·&nbsp; (a/b)⁰ = 1 &nbsp;·&nbsp; (a/b)⁻ⁿ = (b/a)ⁿ</div>
+    <ul>
+      <li>Potência de fração: (3/4)² = 9/16.</li>
+      <li>Potência de decimal: conte as casas no fim. (0,4)² = 0,16; (0,2)³ = 0,008.</li>
+      <li><b>Expoente zero</b> = 1 sempre.</li>
+      <li><b>Expoente negativo</b> inverte a base: (7/8)⁻² = (8/7)² = 64/49. Continua positivo!</li>
+      <li><b>Sinal:</b> expoente par → positivo; ímpar → mantém o sinal da base. (−3/5)² = +9/25; (−1/5)³ = −1/125.</li>
+      <li><b>Porcentagem de porcentagem</b> é multiplicação: 20% de 20% = 0,2 × 0,2 = 0,04 = <b>4%</b> (não 40%).</li>
+    </ul>
+
+    <h3>Raízes</h3>
+    <div class="formula">√(a/b) = √a / √b</div>
+    <ul>
+      <li>Raiz de fração: √(16/25) = 4/5; √(1/81) = 1/9.</li>
+      <li><b>Raiz de decimal (receita de 3 passos):</b> vire fração → tire a raiz de cima e de baixo → volte a decimal. √0,25 = √(25/100) = 5/10 = <b>0,5</b>; √1,44 = 12/10 = 1,2.</li>
+      <li><b>Raiz quarta</b> = raiz da raiz, de dentro para fora: √(√16) = √4 = 2.</li>
+    </ul>
+    <div class="box"><b>Quadrados perfeitos para decorar:</b> 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400.</div>
+    <div class="box warn"><div class="tit">Pegadinhas de raiz e potência</div>
+    <p>• √(a+b) <b>não</b> é √a + √b: √(9+16)=√25=5, mas √9+√16=7.<br>
+    • Ao quadrado <b>não</b> é vezes 2: 1,5² = 2,25 (não 3).<br>
+    • (−2)² = +4, mas −2² = −4. Olhe os parênteses.</p></div>
+
+    <h3>Áreas e equivalência</h3>
+    <table>
+      <tr><th>Figura</th><th>Fórmula da área</th></tr>
+      <tr><td>Retângulo</td><td>A = base × altura</td></tr>
+      <tr><td>Triângulo</td><td>A = (base × altura) ÷ 2</td></tr>
+      <tr><td>Quadrado</td><td>A = lado × lado = lado²</td></tr>
+    </table>
+    <ul>
+      <li><b>Decomposição (soma):</b> recorte a figura em retângulos, quadrados e triângulos, calcule cada peça e some.</li>
+      <li><b>Composição (subtração):</b> complete a figura até um retângulo grande e subtraia o que acrescentou.</li>
+      <li><b>Equivalência:</b> os dois caminhos dão o mesmo resultado. Figuras com áreas iguais não precisam ter a mesma forma.</li>
+      <li><b>Malha quadriculada:</b> cada quadradinho de 1 cm de lado vale 1 cm²; junte as metades duas a duas.</li>
+    </ul>
+    <div class="box warn"><div class="tit">Erros campeões do capítulo</div>
+    <p>• <b>Triângulo sem dividir por 2</b> — escreva o ÷2 antes de calcular.<br>
+    • <b>Lado não é perímetro:</b> área 1,44 km² → lado 1,2 km; a cerca pede o perímetro = 4 × 1,2 = 4,8 km.<br>
+    • Área sempre em unidade <b>ao quadrado</b> (cm², m²). Nunca misture unidades.</p></div>
+  </div>
+
+  <div class="navf">
+    <a href="resumo.html">📝 Ver o Resumo</a>
+    <a href="simulado.html">🎯 Fazer o Simulado</a>
+  </div>
+</div>
+
+<script>
+function mostra(b){
+  document.querySelectorAll('.bloco').forEach(e=>e.classList.remove('ativo'));
+  document.getElementById('b'+b).classList.add('ativo');
+  document.querySelectorAll('.tab').forEach(t=>{t.className='tab';});
+  var tab=document.querySelector('.tab[data-b="'+b+'"]');
+  tab.classList.add('on'+b);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
