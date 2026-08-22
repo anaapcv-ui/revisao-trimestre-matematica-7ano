@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulado de Revisão — Matemática 7º ano</title>
+<style>
+  :root{
+    --bg:#0e1626;--card:#16213b;--card2:#1b2748;--borda:#2c3a63;
+    --texto:#eef3ff;--texto2:#c2cef0;--suave:#8ea0cc;
+    --c5:#2bb6a6;--c6:#3d7dff;--c78:#a06bff;--amarelo:#ffd34d;
+    --verde:#37c98a;--verde-bg:rgba(55,201,138,.14);
+    --vermelho:#ff6b7a;--vermelho-bg:rgba(255,107,122,.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    background:radial-gradient(1200px 600px at 50% -10%,#1a2748 0%,var(--bg) 60%);
+    color:var(--texto);line-height:1.6;padding:20px 16px 90px;}
+  .wrap{max-width:760px;margin:0 auto;}
+  .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;font-size:13px;}
+  .top a{color:var(--suave);text-decoration:none;font-weight:700;}
+  .top a:hover{color:var(--amarelo);}
+  h1{font-size:25px;margin-bottom:6px;}
+  .lead{color:var(--texto2);font-size:14.5px;margin-bottom:16px;}
+  .k5{background:var(--c5);} .k6{background:var(--c6);} .k78{background:var(--c78);}
+  .capchip{font-size:10.5px;font-weight:800;padding:2px 9px;border-radius:999px;color:#08111f;}
+
+  .barra{position:sticky;top:0;z-index:9;background:#0f1a30;border:1px solid var(--borda);
+    border-radius:12px;padding:10px 14px;margin-bottom:16px;display:flex;
+    justify-content:space-between;align-items:center;font-size:13.5px;font-weight:700;}
+  .prog{color:var(--suave);}
+  #nota{color:var(--amarelo);}
+
+  .q{background:var(--card);border:1px solid var(--borda);border-radius:14px;
+    padding:16px 18px;margin-bottom:14px;}
+  .qhead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px;}
+  .qnum{width:28px;height:28px;border-radius:50%;background:var(--card2);
+    display:grid;place-items:center;font-weight:800;font-size:13px;color:var(--amarelo);flex:none;}
+  .qtexto{font-size:15px;font-weight:700;line-height:1.5;margin-bottom:10px;}
+  .qtexto b{color:var(--amarelo);}
+  .opt{display:flex;gap:10px;align-items:flex-start;border:2px solid var(--borda);
+    border-radius:10px;padding:11px 13px;margin-bottom:8px;cursor:pointer;
+    font-size:14px;color:var(--texto2);transition:.15s;background:var(--card2);}
+  .opt:hover{border-color:var(--c6);}
+  .opt.sel{border-color:var(--c6);background:rgba(61,125,255,.12);color:#fff;}
+  .letra{width:24px;height:24px;border-radius:50%;background:#0b1220;flex:none;
+    display:grid;place-items:center;font-weight:800;font-size:12px;color:var(--texto2);}
+  .opt.sel .letra{background:var(--c6);color:#fff;}
+  .corrigido .opt{cursor:default;pointer-events:none;}
+  .opt.certa{border-color:var(--verde);background:var(--verde-bg);color:#fff;}
+  .opt.certa .letra{background:var(--verde);color:#fff;}
+  .opt.erradasel{border-color:var(--vermelho);background:var(--vermelho-bg);color:#fff;}
+  .opt.erradasel .letra{background:var(--vermelho);color:#fff;}
+  .fb{display:none;margin-top:6px;border-radius:10px;padding:11px 13px;font-size:13.5px;line-height:1.55;}
+  .corrigido .fb{display:block;}
+  .fb.ok{background:var(--verde-bg);border-left:4px solid var(--verde);}
+  .fb.no{background:var(--vermelho-bg);border-left:4px solid var(--vermelho);}
+  .fb b{color:#fff;}
+
+  .acao{position:fixed;left:0;right:0;bottom:0;background:#0c1424ee;border-top:1px solid var(--borda);
+    padding:12px 16px;display:flex;justify-content:center;gap:10px;backdrop-filter:blur(6px);}
+  .btn{border:none;border-radius:12px;padding:13px 22px;font-size:15px;font-weight:800;cursor:pointer;}
+  .btn.p{background:var(--amarelo);color:#1a1200;}
+  .btn.s{background:var(--card2);color:var(--texto);border:1px solid var(--borda);}
+  .btn:disabled{opacity:.5;cursor:not-allowed;}
+
+  .resultado{display:none;background:linear-gradient(135deg,#22305a,#182446);
+    border:1px solid var(--borda);border-radius:16px;padding:22px;text-align:center;margin-bottom:16px;}
+  .resultado.show{display:block;}
+  .resultado .big{font-size:34px;font-weight:800;color:var(--amarelo);}
+  .resultado p{color:var(--texto2);font-size:14px;margin-top:4px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a href="index.html">← Início</a><a href="resumo.html">Ver o Resumo →</a></div>
+  <h1>🎯 Simulado de Revisão</h1>
+  <p class="lead">36 questões misturando os três capítulos do trimestre. As alternativas aparecem embaralhadas. Responda tudo e clique em <b>Corrigir</b> para ver a nota e o gabarito comentado.</p>
+
+  <div class="barra">
+    <span class="prog"><span id="respondidas">0</span> de 36 respondidas</span>
+    <span id="nota"></span>
+  </div>
+
+  <div class="resultado" id="resultado">
+    <div class="big" id="notaBig">0 / 36</div>
+    <p id="notaMsg"></p>
+  </div>
+
+  <div id="quiz"></div>
+
+  <div class="acao">
+    <button class="btn s" onclick="reiniciar()">🔄 Refazer</button>
+    <button class="btn p" id="btnCorrigir" onclick="corrigir()">✅ Corrigir e ver gabarito</button>
+  </div>
+</div>
+
+<script>
+const DADOS = [{"q": "O Sistema Internacional de Unidades (SI) define a unidade-base de comprimento como:", "opts": ["o quilômetro (km)", "o metro (m)", "o centímetro (cm)", "o milímetro (mm)"], "correta": 1, "exp": "A unidade-base do SI para comprimento é o <b>metro (m)</b>. Todas as outras unidades de comprimento (km, cm, mm, etc.) são múltiplos ou submúltiplos do metro.", "cap": "Cap. 5", "cls": "k5"}, {"q": "Qual é a definição correta de número racional?", "opts": ["Qualquer número positivo", "Todo número que pode ser escrito como fração a/b com a e b inteiros e b ≠ 0", "Apenas os números com vírgula", "Somente os números inteiros"], "correta": 1, "exp": "Racional é todo número que vira fração de inteiros, com o de baixo (denominador) diferente de zero.", "cap": "Cap. 6", "cls": "k6"}, {"q": "O valor da expressão <b>1/2 + 2/3 &minus; 1/4</b> é:", "opts": ["11/12", "3/12", "1/12", "5/9"], "correta": 0, "exp": "Iguale os denominadores pelo mmc e depois some e subtraia só os numeradores.", "cap": "Cap. 7·8", "cls": "k78"}, {"q": "Quanto vale <b>4,75 km</b> em metros?", "opts": ["47,5 m", "475 m", "4.750 m", "47.500 m"], "correta": 2, "exp": "Do km até o m são 3 casas para a direita → multiplica por 1.000. Então 4,75 × 1.000 = <b>4.750 m</b>.", "cap": "Cap. 5", "cls": "k5"}, {"q": "O número −6 pertence a quais conjuntos?", "opts": ["Apenas a ℕ (naturais)", "A ℤ e a ℚ, mas não a ℕ", "Apenas a ℚ", "A nenhum conjunto"], "correta": 1, "exp": "−6 é inteiro (ℤ) e racional (ℚ), mas não é natural (não há natural negativo).", "cap": "Cap. 6", "cls": "k6"}, {"q": "O saldo da conta da estação está em <b>&minus;R$ 32,80</b>. Chega um depósito de <b>R$ 50,00</b>. Qual fica o saldo?", "opts": ["+R$ 17,20", "&minus;R$ 17,20", "R$ 82,80", "+R$ 18,20"], "correta": 0, "exp": "Depósito é positivo e dívida é negativa: sobrou saldo positivo.", "cap": "Cap. 7·8", "cls": "k78"}, {"q": "A altura da Pedra do Baú (Campos do Jordão–SP) é aproximadamente <b>1.950 m</b>. Em quilômetros, isso equivale a:", "opts": ["0,195 km", "1,95 km", "19,5 km", "19.500 km"], "correta": 1, "exp": "Do m até o km são 3 casas para a esquerda → divide por 1.000. Então 1.950 ÷ 1.000 = <b>1,95 km</b>.", "cap": "Cap. 5", "cls": "k5"}, {"q": "Na dízima periódica 0,4545…, qual é o período?", "opts": ["4", "5", "45", "454"], "correta": 2, "exp": "O grupo de algarismos que se repete é 45 (4545…). Então o período é 45.", "cap": "Cap. 6", "cls": "k6"}, {"q": "A chapa de alumínio custa <b>R$ 19,50</b> o quilograma. A oficina comprou <b>0,8 kg</b>. Quanto foi gasto?", "opts": ["R$ 15,60", "R$ 1,56", "R$ 24,40", "R$ 156,00"], "correta": 0, "exp": "Multiplicar por um número menor que 1 sempre diminui o resultado.", "cap": "Cap. 7·8", "cls": "k78"}, {"q": "O Sistema Internacional define a unidade-base de área como:", "opts": ["o quilômetro quadrado (km²)", "o metro quadrado (m²)", "o hectare (ha)", "o alqueire"], "correta": 1, "exp": "A unidade-base do SI para área é o <b>m²</b>: um quadrado de 1 metro de lado.", "cap": "Cap. 5", "cls": "k5"}, {"q": "O decimal 0,07 corresponde a qual fração?", "opts": ["7/10", "7/100", "7/1000", "70/100"], "correta": 1, "exp": "0,07 tem 2 casas decimais → denominador 100. Logo 0,07 = 7/100.", "cap": "Cap. 6", "cls": "k6"}, {"q": "Analise as afirmativas sobre potenciação de números racionais:", "opts": ["Apenas I", "Apenas I e III", "Apenas II e III", "I, II e III"], "correta": 1, "exp": "Expoente negativo inverte a base; quem define o sinal do resultado é a base.", "cap": "Cap. 7·8", "cls": "k78"}, {"q": "Quanto vale <b>8 m²</b> em centímetros quadrados (cm²)?", "opts": ["800 cm²", "8.000 cm²", "80.000 cm²", "800.000 cm²"], "correta": 2, "exp": "Do m² até o cm² são 2 casas para a direita em área. Cada casa = ×100, então 2 casas = ×10.000. Logo: 8 × 10.000 = <b>80.000 cm²</b>.", "cap": "Cap. 5", "cls": "k5"}, {"q": "Quanto vale |−6| (o módulo de −6)?", "opts": ["−6", "6", "0", "−1"], "correta": 1, "exp": "O módulo é a distância até o zero, sempre positiva. A distância de −6 ao zero é 6.", "cap": "Cap. 6", "cls": "k6"}, {"q": "O resultado de <b>3,15 : 0,5</b> é:", "opts": ["6,3", "0,63", "63", "1,575"], "correta": 0, "exp": "Dividir por 0,5 é o mesmo que multiplicar por 2.", "cap": "Cap. 7·8", "cls": "k78"}, {"q": "Um terreno tem <b>3.500 dm²</b>. Quanto isso é em m²?", "opts": ["0,35 m²", "3,5 m²", "35 m²", "350 m²"], "correta": 2, "exp": "Do dm² até o m² é 1 casa para a esquerda em área → ÷100. Logo 3.500 ÷ 100 = <b>35 m²</b>.", "cap": "Cap. 5", "cls": "k5"}, {"q": "Transformando 0,25 em fração irredutível, obtemos:", "opts": ["25/100", "1/4", "1/2", "5/10"], "correta": 1, "exp": "0,25 = 25/100. Simplificando (÷25 em cima e embaixo) = 1/4.", "cap": "Cap. 6", "cls": "k6"}, {"q": "A potência <b>(2,5)<sup>2</sup></b> vale:", "opts": ["6,25", "5", "62,5", "4,25"], "correta": 0, "exp": "Elevar ao quadrado é multiplicar o número por ele mesmo.", "cap": "Cap. 7·8", "cls": "k78"}, {"q": "Sobre as medidas agrárias, é CORRETO afirmar que:", "opts": ["1 hectare equivale a 1.000 m²", "1 hectare equivale a 10.000 m² e é igual a 1 hm²", "1 alqueire tem o mesmo tamanho em todas as regiões do Brasil", "1 km² é menor que 1 hectare"], "correta": 1, "exp": "<b>1 hectare = 10.000 m² = 1 hm²</b>, equivalente a um quadrado de 100 m por 100 m (≈ um campo de futebol oficial).", "cap": "Cap. 5", "cls": "k5"}, {"q": "Qual é o número OPOSTO (simétrico) de 2,5?", "opts": ["2,5", "−2,5", "5", "0,25"], "correta": 1, "exp": "O oposto troca o sinal: o oposto de 2,5 é −2,5. Eles têm o mesmo módulo.", "cap": "Cap. 6", "cls": "k6"}, {"q": "A potência <b>(&minus;2/3)<sup>&minus;3</sup></b> vale:", "opts": ["&minus;27/8", "27/8", "&minus;8/27", "8/27"], "correta": 0, "exp": "Primeiro inverta a base, depois aplique o expoente positivo e cuide do sinal.", "cap": "Cap. 7·8", "cls": "k78"}, {"q": "Uma fazenda tem <b>3 km²</b>. Quantos hectares essa fazenda possui?", "opts": ["30 ha", "300 ha", "3.000 ha", "30.000 ha"], "correta": 1, "exp": "1 km² = 100 hm² = 100 ha. Então 3 × 100 = <b>300 ha</b>. Outra forma: 3 km² = 3.000.000 m² → 3.000.000 ÷ 10.000 = 300 ha.", "cap": "Cap. 5", "cls": "k5"}, {"q": "O número 1,5 corresponde a qual fração irredutível?", "opts": ["15/10", "3/2", "1/5", "15/100"], "correta": 1, "exp": "1,5 = 15/10, que simplificada (÷5) vira 3/2.", "cap": "Cap. 6", "cls": "k6"}, {"q": "O valor de <b>&radic;(36/121)</b> é:", "opts": ["6/11", "18/60,5", "6/121", "36/11"], "correta": 0, "exp": "Raiz de fração: raiz do numerador dividida pela raiz do denominador.", "cap": "Cap. 7·8", "cls": "k78"}, {"q": "Quanto vale <b>4 horas</b> em segundos?", "opts": ["240 s", "2.400 s", "14.400 s", "240.000 s"], "correta": 2, "exp": "De hora para segundo, multiplica por 3.600 (porque 1 h = 60 min × 60 s = 3.600 s). Logo 4 × 3.600 = <b>14.400 s</b>.", "cap": "Cap. 5", "cls": "k5"}, {"q": "Complete: 0,2 ____ ℕ (conjunto dos naturais).", "opts": ["∈ (pertence)", "∉ (não pertence)", "= ", "⊂ "], "correta": 1, "exp": "0,2 tem vírgula, então não é natural: 0,2 ∉ ℕ. (Mas 0,2 ∈ ℚ.)", "cap": "Cap. 6", "cls": "k6"}, {"q": "Um painel quadrado do casco tem área de <b>2,89 m<sup>2</sup></b>. Quanto mede o lado dele?", "opts": ["1,7 m", "17 m", "1,445 m", "0,17 m"], "correta": 0, "exp": "A raiz quadrada da área devolve o lado do quadrado.", "cap": "Cap. 7·8", "cls": "k78"}, {"q": "Vinícius vai ver uma série que dura <b>4.500 segundos</b>. Esse tempo equivale a:", "opts": ["45 minutos", "1 h 15 min", "1 h 30 min", "2 h 15 min"], "correta": 1, "exp": "4.500 ÷ 60 = 75 minutos. E 75 min = 1 h 15 min (60 min + 15 min). Logo <b>1 h 15 min</b>.", "cap": "Cap. 5", "cls": "k5"}, {"q": "Classifique o número 10/3 ao virar decimal:", "opts": ["Decimal exato", "Dízima periódica (3,333…)", "Número inteiro", "Número natural"], "correta": 1, "exp": "10/3 = 3,333… o 3 se repete sem parar: é dízima periódica.", "cap": "Cap. 6", "cls": "k6"}, {"q": "O valor de <b>&radic;(&radic;(4 096/6 561))</b> é:", "opts": ["8/9", "64/81", "9/8", "4/9"], "correta": 0, "exp": "Raiz quarta: resolva a raiz de dentro e depois a de fora.", "cap": "Cap. 7·8", "cls": "k78"}, {"q": "A subtração <b>4 h 15 min − 1 h 40 min</b> resulta em:", "opts": ["2 h 25 min", "2 h 35 min", "3 h 25 min", "3 h 35 min"], "correta": 1, "exp": "Para tirar 40 de 15 não dá → pega 1 h emprestada: 4 h 15 min = 3 h 75 min. Agora 3 h 75 min − 1 h 40 min = <b>2 h 35 min</b>.", "cap": "Cap. 5", "cls": "k5"}, {"q": "Comparando 0,75 e 1/4, qual é maior?", "opts": ["1/4 (= 0,25)", "0,75", "São iguais", "Não dá para comparar"], "correta": 1, "exp": "1/4 = 0,25. Como 0,75 > 0,25, então 0,75 > 1/4.", "cap": "Cap. 6", "cls": "k6"}, {"q": "Um painel em forma de L é formado por um retângulo de <b>12 cm &times; 5 cm</b> e outro de <b>4 cm &times; 3 cm</b>. Qual é a área total?", "opts": ["72 cm<sup>2</sup>", "60 cm<sup>2</sup>", "84 cm<sup>2</sup>", "48 cm<sup>2</sup>"], "correta": 0, "exp": "Decomposição: calcule cada peça e some.", "cap": "Cap. 7·8", "cls": "k78"}, {"q": "Bianca foi à academia. Ela ficou <b>45 min</b> na esteira, <b>30 min</b> na musculação e <b>1 h 10 min</b> no spinning. Quanto tempo, no total, ela ficou na academia?", "opts": ["1 h 25 min", "2 h 25 min", "2 h 5 min", "2 h 35 min"], "correta": 1, "exp": "45 + 30 + 70 = 145 min. Convertendo: 145 ÷ 60 = 2, sobra 25. Então <b>2 h 25 min</b>. (Lembre que 1 h 10 min = 70 min.)", "cap": "Cap. 5", "cls": "k5"}, {"q": "Qual é o número OPOSTO (simétrico) de −10?", "opts": ["−10", "10", "0", "100"], "correta": 1, "exp": "O oposto troca o sinal: o oposto de −10 é +10. Eles têm o mesmo módulo (10).", "cap": "Cap. 6", "cls": "k6"}, {"q": "Dentro de um quadrado de <b>10 cm</b> de lado foi desenhado um quadrado inclinado cujos vértices dividem cada lado em <b>3 cm</b> e <b>7 cm</b>. Qual é a área do quadrado inclinado?", "opts": ["58 cm<sup>2</sup>", "42 cm<sup>2</sup>", "49 cm<sup>2</sup>", "51 cm<sup>2</sup>"], "correta": 0, "exp": "Caminho da subtração: área do quadrado grande menos os quatro triângulos dos cantos.", "cap": "Cap. 7·8", "cls": "k78"}];
+const LETRAS=['a','b','c','d','e'];
+let QS=[]; let corrigido=false;
+
+function embaralha(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
+
+function montar(){
+  corrigido=false;
+  document.getElementById('quiz').classList.remove('corrigido');
+  document.getElementById('resultado').classList.remove('show');
+  document.getElementById('nota').textContent='';
+  document.getElementById('btnCorrigir').disabled=false;
+  QS=DADOS.map(d=>{
+    const idx=d.opts.map((_,i)=>i);
+    embaralha(idx);
+    return {
+      q:d.q, cap:d.cap, cls:d.cls, exp:d.exp,
+      opts:idx.map(i=>d.opts[i]),
+      correta:idx.indexOf(d.correta),
+      escolhida:null
+    };
+  });
+  render();
+}
+
+function render(){
+  const c=document.getElementById('quiz'); c.innerHTML='';
+  QS.forEach((q,qi)=>{
+    const div=document.createElement('div'); div.className='q';
+    let html='<div class="qhead"><div class="qnum">'+(qi+1)+'</div>'+
+             '<span class="capchip '+q.cls+'">'+q.cap+'</span></div>'+
+             '<div class="qtexto">'+q.q+'</div>';
+    q.opts.forEach((o,oi)=>{
+      html+='<div class="opt" data-q="'+qi+'" data-o="'+oi+'" onclick="escolher('+qi+','+oi+')">'+
+            '<span class="letra">'+LETRAS[oi]+'</span><span>'+o+'</span></div>';
+    });
+    html+='<div class="fb"></div>';
+    div.innerHTML=html; c.appendChild(div);
+  });
+  atualizar();
+}
+
+function escolher(qi,oi){
+  if(corrigido)return;
+  QS[qi].escolhida=oi;
+  document.querySelectorAll('.opt[data-q="'+qi+'"]').forEach(e=>e.classList.remove('sel'));
+  document.querySelector('.opt[data-q="'+qi+'"][data-o="'+oi+'"]').classList.add('sel');
+  atualizar();
+}
+
+function atualizar(){
+  const n=QS.filter(q=>q.escolhida!==null).length;
+  document.getElementById('respondidas').textContent=n;
+}
+
+function corrigir(){
+  corrigido=true;
+  document.getElementById('quiz').classList.add('corrigido');
+  document.getElementById('btnCorrigir').disabled=true;
+  let acertos=0;
+  QS.forEach((q,qi)=>{
+    const acertou=q.escolhida===q.correta;
+    if(acertou)acertos++;
+    document.querySelectorAll('.opt[data-q="'+qi+'"]').forEach(el=>{
+      const oi=+el.dataset.o;
+      if(oi===q.correta)el.classList.add('certa');
+      if(oi===q.escolhida && !acertou)el.classList.add('erradasel');
+    });
+    const fb=document.querySelectorAll('.q')[qi].querySelector('.fb');
+    fb.className='fb '+(acertou?'ok':'no');
+    let msg=acertou?'✔ <b>Você acertou!</b> ':(q.escolhida===null?'⚠️ <b>Você não respondeu.</b> ':'✖ <b>Resposta correta: '+LETRAS[q.correta]+')</b> ');
+    fb.innerHTML=msg+(q.exp||'');
+  });
+  const r=document.getElementById('resultado'); r.classList.add('show');
+  document.getElementById('notaBig').textContent=acertos+' / 36';
+  document.getElementById('nota').textContent='Nota: '+acertos+'/36';
+  const pct=Math.round(acertos/36*100);
+  let m;
+  if(pct>=85)m='Excelente! Você domina os três conteúdos. 🌟';
+  else if(pct>=70)m='Muito bom! Revise só os pontos que errou. 👏';
+  else if(pct>=50)m='No caminho certo. Volte à Revisão Guiada nos temas que errou. 💪';
+  else m='Vale reforçar: releia a Revisão Guiada e o Resumo antes de tentar de novo. 📖';
+  document.getElementById('notaMsg').textContent=m+' ('+pct+'%)';
+  r.scrollIntoView({behavior:'smooth'});
+}
+
+function reiniciar(){montar();window.scrollTo({top:0,behavior:'smooth'});}
+montar();
+</script>
+</body>
+</html>
