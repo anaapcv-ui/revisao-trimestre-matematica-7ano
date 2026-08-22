@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumo Geral — Revisão Trimestre · Matemática 7º ano</title>
+<style>
+  :root{
+    --bg:#0e1626;--card:#16213b;--card2:#1b2748;--borda:#2c3a63;
+    --texto:#eef3ff;--texto2:#c2cef0;--suave:#8ea0cc;
+    --c5:#2bb6a6;--c6:#3d7dff;--c78:#a06bff;--amarelo:#ffd34d;
+    --vermelho:#ff6b7a;--vermelho-bg:rgba(255,107,122,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    background:radial-gradient(1200px 600px at 50% -10%,#1a2748 0%,var(--bg) 60%);
+    color:var(--texto);line-height:1.6;padding:20px 16px 70px;}
+  .wrap{max-width:860px;margin:0 auto;}
+  .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;font-size:13px;}
+  .top a{color:var(--suave);text-decoration:none;font-weight:700;}
+  .top a:hover{color:var(--amarelo);}
+  h1{font-size:26px;margin-bottom:6px;}
+  .lead{color:var(--texto2);font-size:15px;margin-bottom:14px;}
+
+  .grade{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:680px){.grade{grid-template-columns:1fr;} h1{font-size:23px;}}
+  .setor{background:var(--card);border:1px solid var(--borda);border-radius:16px;
+    padding:16px 18px;border-top:4px solid var(--c5);}
+  .setor.s5{border-top-color:var(--c5);} .setor.s6{border-top-color:var(--c6);}
+  .setor.s78{border-top-color:var(--c78);} .setor.full{grid-column:1 / -1;}
+  .setor h2{font-size:16px;margin-bottom:4px;display:flex;gap:8px;align-items:center;}
+  .tagcap{font-size:10.5px;font-weight:800;padding:2px 8px;border-radius:999px;color:#08111f;}
+  .t5{background:var(--c5);} .t6{background:var(--c6);} .t78{background:var(--c78);}
+  h3{font-size:13.5px;color:var(--amarelo);margin:12px 0 4px;text-transform:uppercase;letter-spacing:.04em;}
+  p,li{color:var(--texto2);font-size:13.8px;}
+  p{margin:5px 0;} b{color:#fff;}
+  ul{margin:4px 0 4px 18px;} li{margin:3px 0;}
+  code{background:#0b1220;border:1px solid var(--borda);border-radius:6px;padding:1px 6px;
+    font-family:'Courier New',monospace;color:var(--amarelo);font-size:13px;}
+  .warn{background:var(--vermelho-bg);border-left:4px solid var(--vermelho);
+    border-radius:10px;padding:10px 12px;margin-top:12px;}
+  .warn b{color:#ffb3bb;}
+  .navf{display:flex;justify-content:space-between;margin-top:26px;gap:10px;}
+  .navf a{flex:1;text-align:center;text-decoration:none;background:var(--card2);
+    border:1px solid var(--borda);border-radius:12px;padding:13px;color:var(--texto);font-weight:700;font-size:14px;}
+  .navf a:hover{border-color:var(--amarelo);color:var(--amarelo);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a href="index.html">← Início</a><a href="simulado.html">Ir ao Simulado →</a></div>
+  <h1>📝 Resumo Geral do Trimestre</h1>
+  <p class="lead">Todas as regras, fórmulas e macetes dos três capítulos em uma página. Ideal para a revisão rápida na véspera da prova.</p>
+
+  <div class="grade">
+
+    <!-- CAP 5 -->
+    <div class="setor s5">
+      <h2><span class="tagcap t5">Cap. 5</span> Unidades de medida</h2>
+      <h3>Prefixos</h3>
+      <p>quilo <code>×1000</code> · hecto <code>×100</code> · deca <code>×10</code> · deci <code>÷10</code> · centi <code>÷100</code> · mili <code>÷1000</code></p>
+      <h3>Comprimento — base metro</h3>
+      <p>Trilho km·hm·dam·m·dm·cm·mm. Cada casa = <b>×10</b> (direita) ou <b>÷10</b> (esquerda). 1 km = 1.000 m; 1 m = 100 cm; 1 cm = 10 mm.</p>
+      <h3>Área — base m²</h3>
+      <p>Mesmo trilho, mas cada casa = <b>×100</b>. 1 m² = 10.000 cm²; 1 km² = 1.000.000 m²; 1 hm² = 10.000 m².</p>
+      <h3>Hectare e alqueire</h3>
+      <p>1 ha = 10.000 m². Alqueire paulista = 24.200 m²; mineiro = 48.400 m² (o dobro). Converta tudo para m² antes de calcular.</p>
+      <h3>Tempo — base 60</h3>
+      <p>1 min = 60 s; 1 h = 3.600 s; 1 dia = 86.400 s. Maior→menor multiplica; menor→maior divide. 60 s viram 1 min.</p>
+    </div>
+
+    <!-- CAP 6 -->
+    <div class="setor s6">
+      <h2><span class="tagcap t6">Cap. 6</span> Números racionais (ℚ)</h2>
+      <h3>O conjunto ℚ</h3>
+      <p>Racional = fração <code>a/b</code> com a, b inteiros e <b>b ≠ 0</b>. Cabem frações, decimais e inteiros. ℕ ⊂ ℤ ⊂ ℚ.</p>
+      <h3>Fração ↔ decimal</h3>
+      <p>Fração é divisão (a÷b). Termina → <b>decimal exato</b> (3/4=0,75). Repete sem fim → <b>dízima</b> (2/7). Decimal→fração: denominador é 10, 100... conforme as casas; depois simplifique.</p>
+      <h3>Reta e comparação</h3>
+      <p>Para localizar, vire decimal. Nos negativos o maior é o mais perto do zero: <b>−0,5 &gt; −2</b>. Denominador maior não é fração maior (1/2 &gt; 1/4).</p>
+      <h3>Módulo e opostos</h3>
+      <p><b>Módulo |x|</b> = distância até o zero, sempre ≥ 0 (tira o sinal). <b>Oposto</b> = mesmo módulo, sinal trocado (troca o sinal).</p>
+    </div>
+
+    <!-- CAP 7-8 setor 1 -->
+    <div class="setor s78">
+      <h2><span class="tagcap t78">Cap. 7</span> Operações e potências</h2>
+      <h3>Operações</h3>
+      <ul>
+        <li>Somar/subtrair: iguale pelo <b>mmc</b>.</li>
+        <li>Multiplicar: numerador×num, denom×denom, simplifique.</li>
+        <li>Dividir: multiplique pelo <b>inverso</b> da 2ª fração.</li>
+        <li>Sinais iguais → +; diferentes → −.</li>
+      </ul>
+      <h3>Potenciação</h3>
+      <p><code>(a/b)ⁿ = aⁿ/bⁿ</code> · <code>(a/b)⁰ = 1</code> · <code>(a/b)⁻ⁿ = (b/a)ⁿ</code></p>
+      <p>Par → positivo; ímpar → mantém o sinal da base. 20% de 20% = 4%.</p>
+    </div>
+
+    <!-- CAP 7-8 setor 2 -->
+    <div class="setor s78">
+      <h2><span class="tagcap t78">Cap. 7·8</span> Raízes e áreas</h2>
+      <h3>Raízes</h3>
+      <p><code>√(a/b) = √a/√b</code>. Raiz de decimal: vire fração → tire a raiz → volte a decimal (√1,44 = 1,2). Raiz quarta = raiz da raiz.</p>
+      <p><b>Quadrados perfeitos:</b> 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144...</p>
+      <h3>Áreas</h3>
+      <p>Retângulo <code>b×h</code> · Triângulo <code>(b×h)÷2</code> · Quadrado <code>lado²</code>.</p>
+      <p><b>Decomposição</b> = recorta e soma. <b>Composição</b> = completa um retângulo e subtrai. Áreas iguais podem ter formas diferentes.</p>
+    </div>
+
+    <!-- PEGADINHAS -->
+    <div class="setor full" style="border-top-color:var(--amarelo);">
+      <h2>🚨 Pegadinhas que mais caem</h2>
+      <div class="grade">
+        <div class="warn"><b>Área é ×100, não ×10.</b> Cada casa no trilho da área vale ×100 porque o m² é um quadrado.</div>
+        <div class="warn"><b>Unidade maior → número menor.</b> 5.000 m = 5 km, não 5 milhões.</div>
+        <div class="warn"><b>Nos negativos</b> o maior é o mais perto do zero: −0,5 &gt; −2.</div>
+        <div class="warn"><b>Expoente negativo inverte</b>, não deixa negativo: (7/8)⁻² = 64/49 (positivo).</div>
+        <div class="warn"><b>√(a+b) ≠ √a + √b.</b> A raiz só se separa em × e ÷.</div>
+        <div class="warn"><b>Triângulo sem ÷2</b> é o erro campeão. Escreva o ÷2 antes.</div>
+        <div class="warn"><b>Ao quadrado não é ×2:</b> 1,5² = 2,25 (não 3).</div>
+        <div class="warn"><b>Lado não é perímetro:</b> a cerca pede o contorno = 4 × lado.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="navf">
+    <a href="leitura.html">📖 Revisão Guiada</a>
+    <a href="simulado.html">🎯 Fazer o Simulado</a>
+  </div>
+</div>
+</body>
+</html>
